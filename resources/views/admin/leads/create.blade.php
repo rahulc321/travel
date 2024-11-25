@@ -32,8 +32,8 @@
                   <div class="col-md-3">
                      <label class="form-label">Travel Type<code>*</code></label>
                       <select name="travel_type" class="form-control" required>
-                              <option value="ABC">ABC</option>
-                              <option value="ABC1">ABC1</option>
+                              <option value="Greyhound">Greyhound</option>
+                              <option value="Amantak">Amantak</option>
                       </select>
                   </div>
 
