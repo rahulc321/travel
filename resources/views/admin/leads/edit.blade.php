@@ -33,8 +33,8 @@
                   <div class="col-md-3">
                      <label class="form-label">Travel Type<code>*</code></label>
                       <select name="travel_type" class="form-control" required>
-                              <option value="ABC" <?php if($edit->travel_type == 'ABC'){ echo 'selected'; } ?>>ABC</option>
-                              <option value="ABC1" <?php if($edit->travel_type == 'ABC1'){ echo 'selected'; } ?>>ABC1</option>
+                              <option value="Greyhound" <?php if($edit->travel_type == 'Greyhound'){ echo 'selected'; } ?>>Greyhound</option>
+                              <option value="Amantak" <?php if($edit->travel_type == 'Amantak'){ echo 'selected'; } ?>>Amantak</option>
                       </select>
                   </div>
 
