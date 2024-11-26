@@ -30,12 +30,12 @@
                <form action="{{ route("admin.lead.store") }}" method="POST" enctype="multipart/form-data" class="row g-3 mt-0">
                 @csrf
                   <div class="col-md-3">
-                     <label class="form-label">Travel Type<code>*</code></label>
+                     <label class="form-label">Travel Type <code>*</code></label>
                       <select name="travel_type" class="form-control" required>
                               <option value="Greyhound">Greyhound</option>
                               <option value="Amantak">Amantak</option>
 
-                              
+
                       </select>
                   </div>
 
