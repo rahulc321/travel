@@ -34,6 +34,8 @@
                       <select name="travel_type" class="form-control" required>
                               <option value="Greyhound">Greyhound</option>
                               <option value="Amantak">Amantak</option>
+
+                              
                       </select>
                   </div>
 
