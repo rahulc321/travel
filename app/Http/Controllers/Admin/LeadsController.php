@@ -237,6 +237,7 @@ class LeadsController extends Controller
             $lead->billing_address = $request->billing_address;
             $lead->notes = $request->notes;
             $lead->status = @$request->status;
+            $lead->confirmation_code = @$request->confirmation_code;
 
             $lead->save();
              

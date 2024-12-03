@@ -79,18 +79,18 @@
                   <hr>
                    
                   <div class="col-md-3">
-                     <label for="inputEmail4" class="form-label">Holder name<code>*</code></label>
-                     <input type="text" class="form-control" name="holder_name"  placeholder="Holder name" value="{{@$edit->holder_name}}" required="">
+                     <label for="inputEmail4" class="form-label">Holder name</label>
+                     <input type="text" class="form-control" name="holder_name"  placeholder="Holder name" value="{{@$edit->holder_name}}"  >
                   </div>
 
                   <div class="col-md-3">
-                     <label for="inputEmail4" class="form-label">Card No<code>*</code></label>
-                     <input type="number" class="form-control" name="card_no"  placeholder="Card No" value="{{@$edit->card_no}}" required="">
+                     <label for="inputEmail4" class="form-label">Card No</label>
+                     <input type="number" class="form-control" name="card_no"  placeholder="Card No" value="{{@$edit->card_no}}"  >
                   </div>
 
                   <div class="col-md-3">
-                     <label for="inputEmail4" class="form-label">Cvv<code>*</code></label>
-                     <input type="number" class="form-control" name="cvv"  placeholder="Cvv" value="{{@$edit->cvv}}" required="">
+                     <label for="inputEmail4" class="form-label">Cvv</label>
+                     <input type="number" class="form-control" name="cvv"  placeholder="Cvv" value="{{@$edit->cvv}}" >
                   </div>
 
                  <div class="col-md-3">
@@ -104,7 +104,7 @@
                     value="{{ @$edit->expiry_date }}" 
                     pattern="(0[1-9]|1[0-2])\/[0-9]{4}" 
                     title="Enter a valid date in MM/YYYY format (e.g., 05/2024)" 
-                    required>
+                    >
                 </div>
 
 
@@ -133,6 +133,11 @@
 
                               <option value="reject" <?php if($edit->status == 'reject'){ echo 'selected'; } ?>>Reject</option>
                       </select>
+                  </div>
+
+                  <div class="col-md-3">
+                     <label for="inputEmail4" class="form-label">Confirmation Code</label>
+                     <input type="text" class="form-control" name="confirmation_code"  placeholder="Confirmation Code" value="{{@$edit->confirmation_code}}" required="">
                   </div>
 
  

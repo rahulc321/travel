@@ -41,6 +41,12 @@ class HomeController
                 }
             })->sum('charge_amount');
 
+        if (Auth::user()->roles->contains('title', 'Admin')) {
+            $this->data['users'] = User::with('leads')->get();
+        }else{
+            $this->data['users'] = User::with('leads')->where('id',Auth::Id())->get();
+        }
+
         return view('home',$this->data);
     }
 }

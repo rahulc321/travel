@@ -130,7 +130,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xxl-7 col-xl-6">
+                            <!-- <div class="col-xxl-7 col-xl-6">
                                 <div class="card custom-card">
                                     <div class="card-header justify-content-between">
                                         <div class="card-title">
@@ -152,8 +152,8 @@
                                         <div id="salerevenue"></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xxl-5 col-xl-6">
+                            </div> -->
+                            <!-- <div class="col-xxl-5 col-xl-6">
                                 <div class="card custom-card">
                                     <div class="card-header">
                                         <div class="card-title">
@@ -164,123 +164,32 @@
                                         <div id="weekly-sales"></div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-xl-4">
                                 <div class="card custom-card">
                                     <div class="card-header justify-content-between">
-                                        <div class="card-title">Top Countries</div>
+                                        <div class="card-title">Total Details</div>
                                         <a href="javascript:void(0)" class="text-muted fs-12 tag-link">View All<i class="ti ti-arrow-narrow-right ms-1"></i></a>
                                     </div>
                                     <div class="card-body">
                                         <ul class="list-unstyled top-countries-list">
+                                            @foreach($users as $user)
                                             <li>
                                                 <div class="d-flex align-items-center gap-3">
                                                     <div class="avatar avatar-sm">
                                                         <img src="../assets/images/flags/us_flag.jpg" alt="">
                                                     </div>
                                                     <div class="flex-fill">
-                                                        <span class="d-block fw-medium">United States</span>
-                                                        <span class="text-muted fs-12 d-block">Increased by <span class="text-success fs-11 fw-medium ms-1">0.67%<i class="ti ti-arrow-narrow-up"></i></span></span>
+                                                        <span class="d-block fw-medium">{{$user->name}}</span>
+                                                       
                                                     </div>
                                                     <div class="text-end w-25">
-                                                        <span class="d-block fw-medium fs-14 mb-1">21,754</span>
-                                                        <div class="progress progress-xs">
-                                                            <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                                            </div>
-                                                        </div>
+                                                        <span class="d-block fw-medium fs-14 mb-1">{{$user->total_lead_amount}}</span>
+                                                         
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <div class="avatar avatar-sm">
-                                                        <img src="../assets/images/flags/italy_flag.jpg" alt="">
-                                                    </div>
-                                                    <div class="flex-fill">
-                                                        <span class="d-block fw-medium">Italy</span>
-                                                        <span class="text-muted fs-12 d-block">Decreased by <span class="text-danger fs-11 fw-medium ms-1">12.44%<i class="ti ti-arrow-narrow-down"></i></span></span>
-                                                    </div>
-                                                    <div class="text-end w-25">
-                                                        <span class="d-block fw-medium fs-14 mb-1">16,856</span>
-                                                        <div class="progress progress-xs">
-                                                            <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <div class="avatar avatar-sm">
-                                                        <img src="../assets/images/flags/spain_flag.jpg" alt="">
-                                                    </div>
-                                                    <div class="flex-fill">
-                                                        <span class="d-block fw-medium">Spain</span>
-                                                        <span class="text-muted fs-12 d-block">Increased by <span class="text-success fs-11 fw-medium ms-1">6.84%<i class="ti ti-arrow-narrow-up"></i></span></span>
-                                                    </div>
-                                                    <div class="text-end w-25">
-                                                        <span class="d-block fw-medium fs-14 mb-1">15,674</span>
-                                                        <div class="progress progress-xs">
-                                                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <div class="avatar avatar-sm">
-                                                        <img src="../assets/images/flags/uae_flag.jpg" alt="">
-                                                    </div>
-                                                    <div class="flex-fill">
-                                                        <span class="d-block fw-medium">Uae</span>
-                                                        <span class="text-muted fs-12 d-block">Increased by <span class="text-success fs-11 fw-medium ms-1">4.55%<i class="ti ti-arrow-narrow-up"></i></span></span>
-                                                    </div>
-                                                    <div class="text-end w-25">
-                                                        <span class="d-block fw-medium fs-14 mb-1">15,245</span>
-                                                        <div class="progress progress-xs">
-                                                            <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <div class="avatar avatar-sm">
-                                                        <img src="../assets/images/flags/argentina_flag.jpg" alt="">
-                                                    </div>
-                                                    <div class="flex-fill">
-                                                        <span class="d-block fw-medium">Argentina</span>
-                                                        <span class="text-muted fs-12 d-block">Decreased by <span class="text-danger fs-11 fw-medium ms-1">2.64%<i class="ti ti-arrow-narrow-down"></i></span>
-                                                    </div>
-                                                    <div class="text-end w-25">
-                                                        <span class="d-block fw-medium fs-14 mb-1">14,884</span>
-                                                        <div class="progress progress-xs">
-                                                            <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <div class="avatar avatar-sm">
-                                                        <img src="../assets/images/flags/french_flag.jpg" alt="">
-                                                    </div>
-                                                    <div class="flex-fill">
-                                                        <span class="d-block fw-medium">France</span>
-                                                        <span class="text-muted fs-12 d-block">Increased by <span class="text-success fs-11 fw-medium ms-1">1.42%<i class="ti ti-arrow-narrow-up"></i></span></span>
-                                                    </div>
-                                                    <div class="text-end w-25">
-                                                        <span class="d-block fw-medium fs-14 mb-1">13,169</span>
-                                                        <div class="progress progress-xs">
-                                                            <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>

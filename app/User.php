@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+ 
 
 class User extends Authenticatable
 {
@@ -72,6 +73,16 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
 
+    }
+
+    public function leads()
+    {
+        return $this->hasMany(Leads::class, 'user_id');
+    }
+
+    public function getTotalLeadAmountAttribute()
+    {
+        return $this->leads()->sum('charge_amount');
     }
 
 }
