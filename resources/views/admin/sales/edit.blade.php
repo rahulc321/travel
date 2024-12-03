@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'CRM - Edit Lead')
+@section('title', 'CRM - Edit Sales Lead')
 @section('content')
 <div class="main-content app-content">
    <div class="container-fluid">
@@ -10,7 +10,7 @@
                <nav>
                   <ol class="breadcrumb mb-0">
                      <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-                     <li class="breadcrumb-item active" aria-current="page">Edit Lead</li>
+                     <li class="breadcrumb-item active" aria-current="page">Edit Sales Lead</li>
                   </ol>
                </nav>
             </div>
@@ -22,12 +22,12 @@
          <div class="card custom-card">
             <div class="card-header justify-content-between">
                <div class="card-title">
-                  Lead
+               Edit Sales Lead
                </div>
                 
             </div>
             <div class="card-body">
-               <form action='{{ route("admin.lead.update",[$edit->id]) }}' method="POST" enctype="multipart/form-data" class="row g-3 mt-0">
+               <form action='{{ route("admin.salesUpdate",[$edit->id]) }}' method="POST" enctype="multipart/form-data" class="row g-3 mt-0">
                 @csrf
                 @method('PUT')
                   <div class="col-md-3">
@@ -120,6 +120,19 @@
                    <div class="col-md-6">
                      <label for="inputEmail4" class="form-label">Notes</label>
                      <textarea class="form-control" name="notes">{{@$edit->notes}}</textarea>
+                  </div>
+
+
+                  <div class="col-md-3">
+                     <label class="form-label">Lead Status<code>*</code></label>
+                      <select name="status" class="form-control" required>
+                              <option value="approve" <?php if($edit->status == 'approve'){ echo 'selected'; } ?>>Approve</option>
+                              <option value="chargeback" <?php if($edit->status == 'chargeback'){ echo 'selected'; } ?>>Chargeback</option>
+                              <option value="pending" <?php if($edit->status == 'pending'){ echo 'selected'; } ?>>Pending</option>
+                              <option value="cancelled" <?php if($edit->status == 'cancelled'){ echo 'selected'; } ?>>Cancelled</option>
+
+                              <option value="reject" <?php if($edit->status == 'reject'){ echo 'selected'; } ?>>Reject</option>
+                      </select>
                   </div>
 
  

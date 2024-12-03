@@ -23,24 +23,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Case Intake
     Route::resource('case_intake', 'CaseController');
     Route::any('party-delete/{id}', 'CaseController@partyDelete');
-
-    // CheckList 
-    Route::resource('checklist', 'ChecklistController');
-    Route::any('checklist-delete/{id}', 'ChecklistController@checklistDelete');
-    Route::any('update-status', 'ChecklistController@updateStatus')->name('update-status');
-    Route::any('update-data', 'ChecklistController@updateData')->name('update.data');
-    
-
-    Route::any('loadChecklistFile', 'CaseController@loadChecklist')->name('loadChecklist');
-    Route::any('updateChecklistStatus', 'CaseController@updateChecklistStatus')->name('updateChecklistStatus');
-    Route::any('updateChecklistDueDate', 'CaseController@updateChecklistDueDate')->name('updateChecklistDueDate');
-
-    Route::any('get-states-by-country', 'CaseController@getState')->name('getState');
-    Route::any('get-cities-by-state', 'CaseController@getCity')->name('getCity');
-
-
+ 
     Route::resource('lead', 'LeadsController');
     Route::resource('card', 'CardsController');
+
+    Route::any('sales', 'LeadsController@sales')->name('sales');
+    Route::any('salesEdit/{id}', 'LeadsController@salesEdit')->name('sales.edit');
+    Route::any('salesDestroy/{id}', 'LeadsController@salesDestroy')->name('sales.destroy');
+    
+    Route::any('approve/{id}', 'LeadsController@salesApprove')->name('sales.approve');
+    Route::any('salesRejct/{id}', 'LeadsController@salesRejct')->name('sales.reject');
+    Route::any('salesUpdate/{id}', 'LeadsController@salesUpdate')->name('salesUpdate');
 
 
 });

@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'CRM - Leads')
+@section('title', 'CRM - Sales')
 @section('content')
 <div class="main-content app-content">
     <div class="container-fluid">
@@ -10,7 +10,7 @@
                 <nav>
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Leads</li>
+                        <li class="breadcrumb-item active" aria-current="page">Sales</li>
                         
                     </ol>
                 </nav>
@@ -24,10 +24,10 @@
                         <div class="card custom-card">
                             <div class="card-header">
                                 <div class="card-title">
-                                    List Leads
+                                    List Sales
                                 </div>
 
-                                <a class="" href='{{ route("admin.lead.create") }}' style="float:right !important"><span class="badge bg-outline-info">Add Lead</span></a>
+                              <!--   <a class="" href='{{ route("admin.lead.create") }}' style="float:right !important"><span class="badge bg-outline-info">Add Lead</span></a> -->
                                 
                             </div>
                            
@@ -38,12 +38,11 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Agent Name</th>
                                                 <th>Travel Type</th>
-                                                <th>From Station</th>
-                                                <th>To Station</th>
-                                                <th>Travel Date</th>
-                                                <th>Passenger</th>
-                                                <th>Phone</th>
+                                                <th>Mobile</th>
+                                                <th>CC No</th>
+                                                <th>Holder Name</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -52,26 +51,21 @@
                                         @foreach($leads as $key => $value)
                                             <tr>
                                                 <td>{{$key+1}}</td>
+                                                <td>{{@$value->agentName->name}}</td>
                                                 <td>{{$value->travel_type}}</td>
-                                                <td>{{$value->from_station}}</td>
-                                                <td>{{$value->to_station}}</td>
-                                                <td>{{date('d-m-Y', strtotime($value->travel_date))}}</td>
-                                                <td>{{$value->passenger_name}}</td>
                                                 <td>{{$value->phone}}</td>
+                                                <td>{{$value->card_no}}</td>
+                                                
+                                                <td>{{$value->holder_name}}</td>
                                                 <td>
-                                                    @if($value->status == 'pending')
-                                                        <span class="badge bg-outline-info">Pending</span>
+                                                    
+                                                        <span class="badge bg-outline-info">{{$value->status}}</span>
 
-                                                    @elseif($value->status == 'approve')
-                                                        <span class="badge bg-outline-success">Approve</span>
-
-                                                    @elseif($value->status == 'reject')
-                                                        <span class="badge bg-outline-danger">Reject</span>
-                                                    @endif
+                                                    
                                                 
                                                 </td>
                                                 <td>
-                                                <a class="" href="{{ route('admin.lead.edit', $value->id) }}">
+                                                <a class="" href="{{ route('admin.sales.edit', $value->id) }}">
                                                 <span class="badge bg-outline-info">Edit</span>
                                                 </a>
                                                  
@@ -79,11 +73,37 @@
                                                     <span class="badge bg-outline-secondary">Delete</span>
                                                 </a>
                                                 
-                                                <form id="deleteFrm{{$key}}" action="{{ route('admin.lead.destroy', $value->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                                <form id="deleteFrm{{$key}}" action="{{ route('admin.sales.destroy', $value->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="submit" class="badge bg-outline-secondary" value="Delete">
                                                 </form>
+
+
+                                                <!-- Approve and disapprove -->
+                                                @if($value->status == 'pending')
+                                                    <a class="" href="{{ route('admin.sales.approve', $value->id) }}" onclick="return confirm('Are you sure you?');">
+                                                    <span class="badge bg-outline-success">Approve</span>
+                                                    </a>
+
+                                                    <a class="" href="{{ route('admin.sales.reject', $value->id) }}" onclick="return confirm('Are you sure you?');">
+                                                    <span class="badge bg-outline-danger">Reject</span>
+                                                    </a>
+                                                @endif
+
+                                                @if($value->status == 'approve')
+
+                                                <a class="" href="{{ route('admin.sales.reject', $value->id) }}" onclick="return confirm('Are you sure you?');">
+                                                    <span class="badge bg-outline-danger">Reject</span>
+                                                    </a>
+
+                                                @endif
+
+                                                @if($value->status == 'reject')
+                                                    <a class="" href="{{ route('admin.sales.approve', $value->id) }}" onclick="return confirm('Are you sure you?');">
+                                                    <span class="badge bg-outline-success">Approve</span>
+                                                    </a>
+                                                @endif
 
                                                 </td>
                                             </tr>
