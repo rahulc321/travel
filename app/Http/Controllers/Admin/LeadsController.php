@@ -29,6 +29,22 @@ class LeadsController extends Controller
         return view('admin.leads.index',$this->data);
     }
 
+    public function sales()
+    {   
+        $this->data['leads'] = Leads::where(function ($query) {
+            
+                if (Auth::user()->roles->contains('title', 'Admin')) {
+                    $query->whereNotNull('id'); 
+                } else {
+                     
+                    $query->where('user_id', Auth::id());
+                }
+            })->get();
+        
+        return view('admin.sales.index',$this->data);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -102,6 +118,13 @@ class LeadsController extends Controller
         return view('admin.leads.edit',$this->data);
     }
 
+
+    public function salesEdit($id)
+    {
+        $this->data['edit'] = Leads::find($id);
+        return view('admin.sales.edit',$this->data);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -122,6 +145,16 @@ class LeadsController extends Controller
             $lead->email = $request->email;
             $lead->charge_amount = $request->charge_amount;
             $lead->passenger_name = $request->passenger_name;
+
+
+            $lead->holder_name = $request->holder_name;
+            $lead->card_no = $request->card_no;
+            $lead->cvv = $request->cvv;
+            $lead->expiry_date = $request->expiry_date;
+            $lead->billing_address = $request->billing_address;
+            $lead->notes = $request->notes;
+           // $lead->status = @$request->status;
+
             $lead->save();
              
             # set a success message in the session
@@ -154,5 +187,74 @@ class LeadsController extends Controller
         $delete->delete();
         session()->flash('warning', 'You have successfully deleted!');
         return back();
+    }
+
+    public function salesDestroy($id)
+    {   
+        $delete = Leads::find($id);
+        $delete->delete();
+        session()->flash('warning', 'You have successfully deleted!');
+        return back();
+    }
+
+    public function salesApprove($id)
+    {   
+        $approve = Leads::find($id);
+        $approve->status = 'approve';
+        $approve->save();
+        session()->flash('success', 'You have successfully updated!');
+        return back();
+    }
+
+    public function salesRejct($id)
+    {   
+        $approve = Leads::find($id);
+        $approve->status = 'reject';
+        $approve->save();
+        session()->flash('success', 'You have successfully updated!');
+        return back();
+    }
+
+    public function salesUpdate(Request $request, $id)
+    {
+        try {
+
+            $lead = Leads::find($id);
+            $lead->travel_type = $request->travel_type;
+            $lead->travel_date = $request->travel_date;
+            $lead->from_station = $request->from_station;
+            $lead->to_station = $request->to_station;
+            $lead->phone = $request->phone;
+            $lead->email = $request->email;
+            $lead->charge_amount = $request->charge_amount;
+            $lead->passenger_name = $request->passenger_name;
+
+
+            $lead->holder_name = $request->holder_name;
+            $lead->card_no = $request->card_no;
+            $lead->cvv = $request->cvv;
+            $lead->expiry_date = $request->expiry_date;
+            $lead->billing_address = $request->billing_address;
+            $lead->notes = $request->notes;
+            $lead->status = @$request->status;
+
+            $lead->save();
+             
+            # set a success message in the session
+            session()->flash('success', 'Lead has been successfully updated!');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            # handle validation errors and flash them to the session
+            session()->flash('error', implode(' ', $e->validator->errors()->all()));
+            return redirect()->back()->withInput(); # redirect back with old input
+        } catch (\Exception $e) {
+            # log the exception and flash a generic error message
+            //dd($e->getMessage());
+            \Log::error('Error adding user: ' . $e->getMessage());
+            session()->flash('error', 'Something went wrong. Please try again.');
+            return redirect()->back()->withInput(); # redirect back with old input
+        }
+
+        # redirect to the users index page
+        return redirect()->route('admin.sales');
     }
 }
