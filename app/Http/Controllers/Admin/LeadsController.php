@@ -75,6 +75,13 @@ class LeadsController extends Controller
             $lead->email = $request->email;
             $lead->charge_amount = $request->charge_amount;
             $lead->passenger_name = $request->passenger_name;
+
+            $lead->holder_name = $request->holder_name;
+            $lead->card_no = $request->card_no;
+            $lead->cvv = $request->cvv;
+            $lead->expiry_date = $request->expiry_date;
+            $lead->billing_address = $request->billing_address;
+            $lead->notes = $request->notes;
             $lead->save();
              
             # set a success message in the session
