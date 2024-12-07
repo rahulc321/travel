@@ -77,6 +77,52 @@
                      <input type="text" class="form-control" name="passenger_name"  placeholder="Passenger Name">
                   </div>
 
+                  <hr>
+                   
+                  <div class="col-md-3">
+                     <label for="inputEmail4" class="form-label">Holder name<code>*</code></label>
+                     <input type="text" class="form-control" name="holder_name"  placeholder="Holder name" value="{{@$edit->holder_name}}" required="">
+                  </div>
+
+                  <div class="col-md-3">
+                     <label for="inputEmail4" class="form-label">Card No<code>*</code></label>
+                     <input type="number" class="form-control" name="card_no"  placeholder="Card No" value="{{@$edit->card_no}}" required="">
+                  </div>
+
+                  <div class="col-md-3">
+                     <label for="inputEmail4" class="form-label">Cvv<code>*</code></label>
+                     <input type="number" class="form-control" name="cvv"  placeholder="Cvv" value="{{@$edit->cvv}}" required="">
+                  </div>
+
+                 <div class="col-md-3">
+                  <label for="expiry_date" class="form-label">Expiry Date</label>
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="expiry_date" 
+                    name="expiry_date" 
+                    placeholder="MM/YYYY" 
+                    value="{{ @$edit->expiry_date }}" 
+                    pattern="(0[1-9]|1[0-2])\/[0-9]{4}" 
+                    title="Enter a valid date in MM/YYYY format (e.g., 05/2024)" 
+                    required>
+                </div>
+
+
+
+                  <div class="col-md-6">
+                     <label for="inputEmail4" class="form-label">Billing Address</label>
+                      
+
+                     <textarea class="form-control" name="billing_address">{{@$edit->billing_address}}</textarea>
+                  </div>
+
+
+                   <div class="col-md-6">
+                     <label for="inputEmail4" class="form-label">Notes</label>
+                     <textarea class="form-control" name="notes">{{@$edit->notes}}</textarea>
+                  </div>
+
  
                   <div class="col-12">
                      <button type="submit" class="btn btn-primary">Submit</button>
