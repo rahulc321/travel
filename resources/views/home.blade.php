@@ -111,13 +111,20 @@
                                     <div class="card-body">
                                         <div class="d-flex align-items-start justify-content-between sales-main-cards">
                                             <div>
-                                                <div class="mb-1 text-muted">Total Sales</div>
+                                                <div class="mb-1 text-muted">Active Merchant Id</div>
                                                 <h4 class="fw-semibold mb-0">
-                                                    6,23,783
+                                                   <?php 
+                                                        $activeMId = \DB::table('marchents')->where('status',1)->first();
+
+                                                    
+                                                   ?>
+                                                     <span class="badge bg-outline-danger">{{@$activeMId->marchent}}</span>
+                                                  
                                                 </h4>
+
                                                 <div class="d-flex align-items-center mt-4">
-                                                    <span class="text-success fw-medium"><i class="ti ti-trending-up me-1 fs-12 align-middle d-inline-flex"></i>2.38%</span>
-                                                    <span class="ms-2 fs-13">this year</span>
+                                                    <span class="text-success fw-medium"><i class="ti ti-trending-up me-1 fs-12 align-middle d-inline-flex"></i></span>
+                                                    <span class="ms-2 fs-13"></span>
                                                 </div>
                                             </div>
                                             <div>
