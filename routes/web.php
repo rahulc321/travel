@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
  
     Route::resource('lead', 'LeadsController');
     Route::resource('card', 'CardsController');
+    Route::resource('merchant', 'MarchentController');
 
     Route::any('sales', 'LeadsController@sales')->name('sales');
     Route::any('salesEdit/{id}', 'LeadsController@salesEdit')->name('sales.edit');
