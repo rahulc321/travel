@@ -64,7 +64,7 @@
     </li>
 
 
-   <!--  <li class="slide">
+    <li class="slide">
         <a href='{{ route("admin.card.index") }}' class="side-menu__item {{ request()->is('admin/card*') ? 'active' : '' }}">
             <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" height="24px" viewBox="0 0 24 24" width="24px" fill="#5f6368">
                 <path d="M0 0h24v24H0V0z" fill="none"/>
@@ -72,7 +72,7 @@
             </svg>
             <span class="side-menu__label">Cards</span>
         </a>
-    </li> -->
+    </li>
 
     @if (Auth::user()->roles->contains('title', 'Admin'))
     <li class="slide">

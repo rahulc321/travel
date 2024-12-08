@@ -37,12 +37,9 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Holder Name</th>
-                                                <th>Card No</th>
-                                                <th>Expiry Month</th>
-                                                <th>Expiry Year</th>
-                                                <th>CVV</th>
-                                                <th>Status</th>
+                                                <th>Phone</th>
+                                                <th>Notes</th>
+                                                 
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -50,8 +47,9 @@
                                         @foreach($cards as $key => $value)
                                             <tr>
                                                 <td>{{$key+1}}</td>
-                                                <td>{{$value->holder_name}}</td>
-                                                <td>{{$value->card_no}}</td>
+                                                <td>{{$value->phone}}</td>
+                                                <td>{!! $value->note !!}</td>
+                                                <!-- <td>{{$value->note}}</td>
                                                 <td>{{$value->expiry_month}}</td>
                                                 <td>{{$value->expiry_year}}</td>
                                                 <td>{{$value->cvv}}</td>
@@ -64,7 +62,7 @@
                                                         <span class="badge bg-outline-success">Active</span>
 
                                                     @endif
-                                                </td>
+                                                </td> -->
 
 
                                                 <td>
