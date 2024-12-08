@@ -56,6 +56,8 @@ class CardsController extends Controller
             $card->cvv = $request->cvv;
             $card->expiry_month = $request->expiry_month;
             $card->expiry_year = $request->expiry_year;
+            $card->phone = $request->phone;
+            $card->note = $request->note;
             $card->status = $request->status;
              
              
@@ -120,6 +122,8 @@ class CardsController extends Controller
             $card->cvv = $request->cvv;
             $card->expiry_month = $request->expiry_month;
             $card->expiry_year = $request->expiry_year;
+            $card->status = $request->status;
+            $card->note = $request->note;
             $card->status = $request->status;
              
              

@@ -1,11 +1,17 @@
 @extends('layouts.admin')
 @section('title', 'CRM - Add Card')
 @section('content')
+<style>
+   .cke_notification_warning {
+    background: #c83939;
+    border: 1px solid #902b2b;
+    display: none;
+}
+</style>
 <div class="main-content app-content">
    <div class="container-fluid">
       <div class="my-4 page-header-breadcrumb d-flex align-items-center justify-content-between flex-wrap gap-2">
          <div>
-            <!-- <h1 class="page-title fw-medium fs-18 mb-2">Data Tables</h1> -->
             <div class="">
                <nav>
                   <ol class="breadcrumb mb-0">
@@ -24,71 +30,20 @@
                <div class="card-title">
                   Card
                </div>
-                
             </div>
             <div class="card-body">
-               <form action="{{ route("admin.card.store") }}" method="POST" enctype="multipart/form-data" class="row g-3 mt-0">
-                @csrf
-                  <div class="col-md-3">
-                     <label class="form-label">Holder name<code>*</code></label>
-                      <input type="text" class="form-control" required="" name="holder_name" placeholder="Holder name"> 
-                  </div>
-
-                  <div class="col-md-3">
-                     <label for="inputEmail4" class="form-label">Card No<code>*</code></label>
-                     <input type="number" class="form-control" required="" name="card_no" required="" placeholder="Card No">
-                  </div>
-
-                  <div class="col-md-3">
-                      <label for="expiryMonth" class="form-label">Expiry Month<code>*</code></label>
-                      <select id="expiryMonth" class="form-control" required name="expiry_month">
-                          <option value="" disabled selected>Select a month</option>
-                          <?php
-                          // Loop from 1 to 12 for the months
-                          for ($i = 1; $i <= 12; $i++) {
-                              # Format month number as two digits
-                              $monthValue = str_pad($i, 2, '0', STR_PAD_LEFT); 
-                              
-                              # Convert the number to the month name
-                              $monthName = date('F', mktime(0, 0, 0, $i, 1));
-                              
-                              # Output the option
-                              echo "<option value=\"$monthValue\">$monthName</option>";
-                          }
-                          ?>
-                      </select>
-                  </div>
-
-
-                  <div class="col-md-3">
-                      <label for="expiryYear" class="form-label">Expiry Year<code>*</code></label>
-                      <select id="expiryYear" class="form-control" required name="expiry_year">
-                          <option value="" disabled selected>Select a year</option>
-                          <?php
-                          // Loop from 2020 to 2050
-                          for ($year = 2020; $year <= 2050; $year++) {
-                              echo "<option value=\"$year\">$year</option>";
-                          }
-                          ?>
-                      </select>
-                  </div>
-
-                  <div class="col-md-3">
-                     <label for="inputEmail4" class="form-label">CVV<code>*</code></label>
-                     <input type="text" class="form-control" required="" name="cvv" required="" placeholder="CVV">
-                  </div>
-
+               <form action="{{ route('admin.card.store') }}" method="POST" enctype="multipart/form-data" class="row g-3 mt-0">
+                  @csrf
                   <div class="col-md-3">
                      <label class="form-label">Phone<code>*</code></label>
-                      <select class="form-control" name="status">
-                         <option value="1">Active</option>
-                         <option value="0">Inactive</option>
-                      </select>
+                     <input type="number" class="form-control" required="" name="phone" placeholder="Enter Phone">
                   </div>
 
-                   
+                  <div class="col-md-6">
+                     <label class="form-label">Notes<code>*</code></label>
+                     <textarea name="note" id="notes" class="form-control" placeholder="Notes"></textarea>
+                  </div>
 
- 
                   <div class="col-12">
                      <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
@@ -98,25 +53,10 @@
       </div>
    </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
 <script>
-   $(document).ready(function () {
-      // Handle Select All checkbox change
-      $('#select-all').on('change', function () {
-          const isChecked = $(this).is(':checked');
-          
-          $('#permissions1 option').prop('selected', isChecked);
-          $('#permissions1').trigger('change'); // Trigger change to update any plugins
-      });
-   
-      // Update Select All checkbox based on individual selections
-      $('#permissions1').on('change', function () {
-          const allSelected = $('#permissions1 option').length === $('#permissions1 option:selected').length;
-          $('#select-all').prop('checked', allSelected);
-      });
-   });
-   
-   
-   
+   // Initialize CKEditor for the Notes section
+   CKEDITOR.replace('notes');
 </script>
 @endsection
