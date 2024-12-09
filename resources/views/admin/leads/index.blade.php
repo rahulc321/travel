@@ -27,7 +27,7 @@
                                     List Leads
                                 </div>
 
-                                <a class="" href='{{ route("admin.lead.create") }}' style="float:right !important"><span class="badge bg-outline-info">Add Lead</span></a>
+                                <a  class="" href='{{ route("admin.lead.create") }}' style="float:right !important"><span class="badge bg-outline-info" style="font-size: 15px;">Add Lead</span></a>
                                 
                             </div>
                            

@@ -1,7 +1,11 @@
 @extends('layouts.admin')
 @section('title', 'CRM - Dashboard')
 @section('content')
-
+<style>
+    span.badge.bg-outline-danger.mid {
+    font-size: 12px;
+}
+</style>
 <div class="main-content app-content">
             <div class="container-fluid">
 
@@ -118,7 +122,7 @@
 
                                                     
                                                    ?>
-                                                     <span class="badge bg-outline-danger">{{@$activeMId->marchent}}</span>
+                                                     <span class="badge bg-outline-danger mid">{{@$activeMId->marchent}}</span>
                                                   
                                                 </h4>
 
@@ -172,7 +176,7 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <div class="col-xl-4">
+                            <div class="col-xl-4 hide">
                                 <div class="card custom-card">
                                     <div class="card-header justify-content-between">
                                         <div class="card-title">Total Details</div>
@@ -201,7 +205,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-8">
+                            <div class="col-xl-8 hide">
                                 <div class="card custom-card overflow-hidden">
                                     <div class="card-header justify-content-between">
                                         <div class="card-title">
@@ -363,7 +367,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-12">
+                            <div class="col-xl-12 hide">
                                 <div class="card custom-card">
                                     <div class="card-header justify-content-between">
                                         <div class="card-title">
@@ -672,7 +676,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xxl-3">
+                    <div class="col-xxl-3 hide">
                         <div class="row">
                             <div class="col-xl-12 col-xl-6">
                                 <div class="card custom-card card-bg-primary visitors-search-card">
