@@ -20,10 +20,10 @@ class MarchentController extends Controller
         $this->data['marchant'] = Marchent::where(function ($query) {
             
                 if (Auth::user()->roles->contains('title', 'Admin')) {
-                    $query->whereNotNull('id'); 
+                   // $query->whereNotNull('id'); 
                 } else {
                      
-                    $query->where('user_id', Auth::id());
+                   // $query->where('user_id', Auth::id());
                 }
             })->get();
         

@@ -84,6 +84,7 @@
             <span class="side-menu__label">Sales</span>
         </a>
     </li>
+    @endif
 
     <li class="slide">
         <a href='{{ route("admin.merchant.index") }}' class="side-menu__item {{ request()->is('admin/merchant*') ? 'active' : '' }}">
@@ -96,7 +97,7 @@
     </li>
 
 
-    @endif
+    
     <!-- End::slide -->
 
         

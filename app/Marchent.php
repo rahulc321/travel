@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Marchent extends Model
 {
     use HasFactory;
+
+    
 }
