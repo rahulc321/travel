@@ -71,6 +71,7 @@
                                                 
                                                 </td>
                                                 <td>
+                                                @if (Auth::user()->roles->contains('title', 'Admin'))
                                                 <a class="" href="{{ route('admin.lead.edit', $value->id) }}">
                                                 <span class="badge bg-outline-info">Edit</span>
                                                 </a>
@@ -78,6 +79,8 @@
                                                 <a class="" href="javascript:;" onclick="if(confirm('Are you sure you want to delete this?')) { event.preventDefault(); document.getElementById('deleteFrm<?=$key?>').submit(); }">
                                                     <span class="badge bg-outline-secondary">Delete</span>
                                                 </a>
+
+                                                @endif
                                                 
                                                 <form id="deleteFrm{{$key}}" action="{{ route('admin.lead.destroy', $value->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                                     <input type="hidden" name="_method" value="DELETE">
