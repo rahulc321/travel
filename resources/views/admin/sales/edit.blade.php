@@ -107,9 +107,9 @@
                         <div class="col-md-3">
                             <label for="expiry_date" class="form-label">Expiry Date</label>
                             <input type="text" class="form-control" id="expiry_date" name="expiry_date"
-                                placeholder="MM/YYYY" value="{{ @$edit->expiry_date }}"
-                                pattern="(0[1-9]|1[0-2])\/[0-9]{4}"
-                                title="Enter a valid date in MM/YYYY format (e.g., 05/2024)">
+                                placeholder="MM/YY" value="{{ @$edit->expiry_date }}"
+                                
+                                title="Enter a valid date in MM/YY format (e.g., 05/2024)">
                         </div>
 
 
