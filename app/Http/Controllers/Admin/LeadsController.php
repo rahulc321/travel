@@ -110,7 +110,8 @@ class LeadsController extends Controller
      */
     public function show($id)
     {
-        //
+        $this->data['user'] = Leads::find($id);
+        return view('admin.sales.show',$this->data);
     }
 
     /**

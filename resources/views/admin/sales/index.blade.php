@@ -42,8 +42,11 @@
                                                 <th>Travel Type</th>
                                                 <th>Mobile</th>
                                                 <th>CC No</th>
+                                                <th>Card No</th>
                                                 <th>Holder Name</th>
+                                                <th>Passenger</th>
                                                 <th>Status</th>
+                                                <th>Created At</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -54,9 +57,11 @@
                                                 <td>{{@$value->agentName->name}}</td>
                                                 <td>{{$value->travel_type}}</td>
                                                 <td>{{$value->phone}}</td>
+                                                <td>{{$value->confirmation_code}}</td>
                                                 <td>{{$value->card_no}}</td>
                                                 
                                                 <td>{{$value->holder_name}}</td>
+                                                <td>{{$value->passenger_name}}</td>
                                                 <td>
                                                     
                                                         <span class="badge bg-outline-info">{{$value->status}}</span>
@@ -64,7 +69,14 @@
                                                     
                                                 
                                                 </td>
+                                                <td>{{$value->created_at}}</td>
                                                 <td>
+
+                                                <a class="" href="{{ route('admin.lead.show', $value->id) }}">
+                                                <span class="badge bg-outline-info">View</span>
+                                                </a>
+
+
                                                 <a class="" href="{{ route('admin.sales.edit', $value->id) }}">
                                                 <span class="badge bg-outline-info">Edit</span>
                                                 </a>
