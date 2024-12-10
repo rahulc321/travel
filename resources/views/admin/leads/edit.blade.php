@@ -59,7 +59,7 @@
 
                   <div class="col-md-3">
                      <label for="inputEmail4" class="form-label">Travel Date</label>
-                     <input type="date" class="form-control" required="" name="travel_date" placeholder="Travel Date" value="{{date('Y-m-d', strtotime($edit->travel_date))}}">
+                     <input type="text" class="form-control" required="" name="travel_date" placeholder="Travel Date" value="{{$edit->travel_date}}">
                   </div>
 
                   <div class="col-md-3">
@@ -98,13 +98,13 @@
                   <hr>
                    
                   <div class="col-md-3">
-                     <label for="inputEmail4" class="form-label">Holder name<code>*</code></label>
-                     <input type="text" class="form-control" name="holder_name"  placeholder="Holder name" value="{{@$edit->holder_name}}" required="">
+                     <label for="inputEmail4" class="form-label">Holder name</label>
+                     <input type="text" class="form-control" name="holder_name"  placeholder="Holder name" value="{{@$edit->holder_name}}">
                   </div>
 
                   <div class="col-md-3">
-                     <label for="inputEmail4" class="form-label">Card No<code>*</code></label>
-                     <input type="number" class="form-control" name="card_no"  placeholder="Card No" value="{{@$edit->card_no}}" required="">
+                     <label for="inputEmail4" class="form-label">Card No</label>
+                     <input type="number" class="form-control" name="card_no"  placeholder="Card No" value="{{@$edit->card_no}}" >
                   </div>
 
                   <div class="col-md-3">
@@ -122,7 +122,7 @@
                     placeholder="MM/YYYY" 
                     value="{{ @$edit->expiry_date }}" 
                     
-                    required>
+                    >
                 </div>
 
 

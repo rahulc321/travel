@@ -60,7 +60,7 @@
 
                         <div class="col-md-3">
                             <label for="inputEmail4" class="form-label">Travel Date</label>
-                            <input type="date" class="form-control" required="" name="travel_date"
+                            <input type="text" class="form-control" required="" name="travel_date"
                                 placeholder="Travel Date">
                         </div>
 
@@ -102,27 +102,27 @@
                         <hr>
 
                         <div class="col-md-3">
-                            <label for="inputEmail4" class="form-label">Holder name<code>*</code></label>
+                            <label for="inputEmail4" class="form-label">Holder name</label>
                             <input type="text" class="form-control" name="holder_name" placeholder="Holder name"
-                                value="{{@$edit->holder_name}}" required="">
+                                value="{{@$edit->holder_name}}">
                         </div>
 
                         <div class="col-md-3">
-                            <label for="inputEmail4" class="form-label">Card No<code>*</code></label>
+                            <label for="inputEmail4" class="form-label">Card No</label>
                             <input type="number" class="form-control" name="card_no" placeholder="Card No"
-                                value="{{@$edit->card_no}}" required="">
+                                value="{{@$edit->card_no}}">
                         </div>
 
                         <div class="col-md-3">
-                            <label for="inputEmail4" class="form-label">Cvv<code>*</code></label>
+                            <label for="inputEmail4" class="form-label">Cvv</label>
                             <input type="number" class="form-control" name="cvv" placeholder="Cvv"
-                                value="{{@$edit->cvv}}" required="">
+                                value="{{@$edit->cvv}}">
                         </div>
 
                         <div class="col-md-3">
                             <label for="expiry_date" class="form-label">Expiry Date</label>
                             <input type="text" class="form-control" id="expiry_date" name="expiry_date"
-                                placeholder="MM/YY" value="{{ @$edit->expiry_date }}" required>
+                                placeholder="MM/YY" value="{{ @$edit->expiry_date }}" >
                         </div>
 
 
