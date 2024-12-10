@@ -35,6 +35,33 @@
                                         <td>#{{$user->id}}</td>
                                     </tr>
                                     <tr>
+                                        <th>Holder Name:</th>
+                                        <td>{{$user->holder_name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Card No:</th>
+                                        <td>{{$user->card_no}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>CVV No:</th>
+                                        <td>{{$user->cvv}}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <th>Expiry Date:</th>
+                                        <td>{{$user->expiry_date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Confirmation:</th>
+                                        <td>{{$user->confirmation_code}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Billing Address:</th>
+                                        <td>{{$user->billing_address}}</td>
+                                    </tr>
+                                    <tr>
                                         <th>Travel Type:</th>
                                         <td>{{$user->travel_type}}</td>
                                     </tr>
@@ -62,22 +89,9 @@
                                         <th>Passenger Name:</th>
                                         <td>{{$user->passenger_name}}</td>
                                     </tr>
-                                    <tr>
-                                        <th>Holder Name:</th>
-                                        <td>{{$user->holder_name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Card No:</th>
-                                        <td>{{$user->card_no}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>CVV No:</th>
-                                        <td>{{$user->cvv}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Confirmation:</th>
-                                        <td>{{$user->confirmation_code}}</td>
-                                    </tr>
+
+                                   
+                                   
                                 </tbody>
                             </table>
                         </div>
