@@ -137,7 +137,7 @@
 
                   <div class="col-md-3">
                      <label for="inputEmail4" class="form-label">Confirmation Code</label>
-                     <input type="text" class="form-control" name="confirmation_code"  placeholder="Confirmation Code" value="{{@$edit->confirmation_code}}" required="">
+                     <input type="text" class="form-control" name="confirmation_code"  placeholder="Confirmation Code" value="{{@$edit->confirmation_code}}" >
                   </div>
 
  
