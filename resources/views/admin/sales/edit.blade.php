@@ -154,14 +154,14 @@
                         $mids = \DB::table('marchents')->where('status',1)->get();
 
                         ?>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label class="form-label">Merchant Id</label>
-                            <select name="merchant_id" class="form-control">
-                            <option>Select</option>
-                              @foreach($mids as $mid)
-                                <option value="{{$mid->marchent}}"  <?php if($edit->merchant_id == $mid->marchent){ echo 'selected'; } ?>>{{$mid->marchent}}</option>
-                              @endforeach
-                            </select>
+
+
+                            <input type="text" class="form-control" name="merchant_id" 
+                                value="{{@$edit->merchant_id}}">
+
+ 
                         </div>
 
 

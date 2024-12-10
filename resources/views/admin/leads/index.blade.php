@@ -55,7 +55,7 @@
                                                 <td>{{$value->travel_type}}</td>
                                                 <td>{{$value->from_station}}</td>
                                                 <td>{{$value->to_station}}</td>
-                                                <td>{{date('d-m-Y', strtotime($value->travel_date))}}</td>
+                                                <td>{{$value->travel_date}}</td>
                                                 <td>{{$value->passenger_name}}</td>
                                                 <td>{{$value->phone}}</td>
                                                 <td>
