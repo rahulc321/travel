@@ -52,14 +52,16 @@
                                         <th>Expiry Date:</th>
                                         <td>{{$user->expiry_date}}</td>
                                     </tr>
-                                    <tr>
-                                        <th>Confirmation:</th>
-                                        <td>{{$user->confirmation_code}}</td>
-                                    </tr>
+                                    
 
                                     <tr>
                                         <th>Billing Address:</th>
                                         <td>{{$user->billing_address}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Confirmation:</th>
+                                        <td>{{$user->confirmation_code}}</td>
                                     </tr>
                                     <tr>
                                         <th>Travel Type:</th>
