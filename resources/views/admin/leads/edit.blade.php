@@ -38,6 +38,25 @@
                       </select>
                   </div>
 
+                  <?php
+                  $users = App\User::whereHas('roles', function ($query) {
+                                              $query->where('title', 'User');
+                                             })->get();
+                  
+                  ?> @if (Auth::user()->roles->contains('title', 'Admin'))
+                        <div class="col-md-3">
+                            <label class="form-label">User<code>*</code></label>
+                            <select name="user_id" class="form-control" required>
+                                <option value="">Select user</option>
+                                @foreach($users as $user)
+                                <option value="{{$user->id}}" <?php if($edit->user_id == $user->id){ echo 'selected'; } ?>>{{$user->name}}</option>
+                                @endforeach
+
+                            </select>
+                        </div>
+
+                        @endif
+
                   <div class="col-md-3">
                      <label for="inputEmail4" class="form-label">Travel Date</label>
                      <input type="date" class="form-control" required="" name="travel_date" placeholder="Travel Date" value="{{date('Y-m-d', strtotime($edit->travel_date))}}">
@@ -102,8 +121,7 @@
                     name="expiry_date" 
                     placeholder="MM/YYYY" 
                     value="{{ @$edit->expiry_date }}" 
-                    pattern="(0[1-9]|1[0-2])\/[0-9]{4}" 
-                    title="Enter a valid date in MM/YYYY format (e.g., 05/2024)" 
+                    
                     required>
                 </div>
 

@@ -66,7 +66,14 @@ class LeadsController extends Controller
         try {
 
             $lead = new Leads();
-            $lead->user_id = Auth::Id();
+
+            if (Auth::user()->roles->contains('title', 'Admin')){
+                $lead->user_id = $request->user_id;
+            }else{
+                $lead->user_id = Auth::Id();
+            }
+
+           
             $lead->travel_type = $request->travel_type;
             $lead->travel_date = $request->travel_date;
             $lead->from_station = $request->from_station;
@@ -145,6 +152,13 @@ class LeadsController extends Controller
         try {
 
             $lead = Leads::find($id);
+
+            if (Auth::user()->roles->contains('title', 'Admin')){
+                $lead->user_id = $request->user_id;
+            }else{
+                $lead->user_id = Auth::Id();
+            }
+
             $lead->travel_type = $request->travel_type;
             $lead->travel_date = $request->travel_date;
             $lead->from_station = $request->from_station;
