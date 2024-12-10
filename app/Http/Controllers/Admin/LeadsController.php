@@ -246,6 +246,8 @@ class LeadsController extends Controller
             $lead->notes = $request->notes;
             $lead->status = @$request->status;
             $lead->confirmation_code = @$request->confirmation_code;
+            $lead->merchant_id = @$request->merchant_id;
+            //$lead->user_id = @$request->user_id;
 
             $lead->save();
              
