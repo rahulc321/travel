@@ -1,18 +1,33 @@
 <?php
+use Illuminate\Support\Facades\Http;
+
 
 Route::redirect('/', '/login');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
 
-Route::get('/server-ip', function () {
+Route::get('/ip', function () {
+    try {
+        // Fetch IPv4
+        $ipv4 = Http::get('https://api64.ipify.org')->body();
+
+        // Attempt to fetch IPv6
+        $ipv6 = Http::get('https://ifconfig.me/ipv6')->successful() ? Http::get('https://ifconfig.me/ipv6')->body() : 'Not available';
+
+    } catch (\Exception $e) {
+        $ipv4 = 'Unable to fetch IPv4';
+        $ipv6 = 'Unable to fetch IPv6';
+    }
+
     return response()->json([
-        'public_ip' => file_get_contents('https://api64.ipify.org'),
+        'ipv4' => $ipv4,
+        'ipv6' => $ipv6,
     ]);
 });
 
  Route::any('/customLogin', 'Auth\LoginController@customLogin')->name('customLogin');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth','check.ip']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
