@@ -15,7 +15,9 @@ class IPWhitelistController extends Controller
      */
     public function index(Request $request)
     {   
-        
+        return response()->json([
+            'public_ip' => file_get_contents('https://api64.ipify.org'),
+        ]);
         $this->data['ips'] = IPWhitelist::all();
         return view('admin.ip_whitelist.index',$this->data);
     }

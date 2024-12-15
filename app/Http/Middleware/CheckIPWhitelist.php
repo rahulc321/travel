@@ -18,7 +18,8 @@ class CheckIPWhitelist
      */
     public function handle(Request $request, Closure $next)
     {
-        $ip =  Http::get('https://api64.ipify.org')->body();
+        //$ip =  Http::get('https://api64.ipify.org')->body();
+        $ip =  $request->ip();
         //dd($ip);
         # Check if IP exists in the whitelist
         $allowed = IPWhitelist::where('ip_address', $ip)->exists();
