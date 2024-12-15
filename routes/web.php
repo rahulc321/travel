@@ -1,12 +1,14 @@
 <?php
 use Illuminate\Support\Facades\Http;
 
+use Illuminate\Http\Request;
+
 
 Route::redirect('/', '/login');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
 
-Route::get('/ip', function () {
+Route::get('/ip', function (Request $request) {
     try {
         // Fetch IPv4
         $ipv4 = Http::get('https://api64.ipify.org')->body();
@@ -20,7 +22,7 @@ Route::get('/ip', function () {
     }
 
     return response()->json([
-        'ipv4' => $ipv4,
+        'ipv4' => $request->ip(),
         'ipv6' => $ipv6,
     ]);
 });

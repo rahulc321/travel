@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "realrashid/sweet-alert": "^7.2",
+        "torann/geoip": "*",
         "yajra/laravel-datatables-oracle": "^10.8"
     },
     "require-dev": {
