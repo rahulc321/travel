@@ -42,5 +42,6 @@ class Kernel extends HttpKernel
         'bindings'      => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'auth.basic'    => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'alert' => \RealRashid\SweetAlert\ToSweetAlert::class,
+        'check.ip' => \App\Http\Middleware\CheckIPWhitelist::class,
     ];
 }

@@ -32,14 +32,17 @@ class HomeController
 
 
         $this->data['total_revenue'] = Leads::where(function ($query) {
-            
+                # check if the user has the Admin role
                 if (Auth::user()->roles->contains('title', 'Admin')) {
-                    $query->whereNotNull('id'); 
+                    $query->whereNotNull('id');
                 } else {
-                     
+                    # filter by the current user's ID
                     $query->where('user_id', Auth::id());
                 }
-            })->sum('charge_amount');
+            })
+            ->selectRaw("SUM(CASE WHEN status = 'chargeback' THEN -charge_amount ELSE charge_amount END) as total")
+            ->value('total'); # fetch the calculated total
+            
 
         if (Auth::user()->roles->contains('title', 'Admin')) {
             $this->data['users'] = User::with('leads')->get();

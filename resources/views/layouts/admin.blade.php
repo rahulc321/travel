@@ -1140,18 +1140,18 @@
                 <ul class="main-header-dropdown dropdown-menu pt-0 overflow-hidden header-profile-dropdown dropdown-menu-end"
                     aria-labelledby="mainHeaderProfile">
                     <li class="border-bottom"><a class="dropdown-item d-flex flex-column" href="#"><span
-                                class="fs-12 text-muted">Wellcome!</span><span class="fs-14">jackden123</span></a>
+                                class="fs-12 text-muted">Wellcome!</span><span class="fs-14">Mr. {{\Auth::user()->name}}</span></a>
                     </li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="profile.html"><i
+                    <li><a class="dropdown-item d-flex align-items-center" href="{{route('admin.update_profile')}}"><i
                                 class="ti ti-user me-2 fs-18 text-primary"></i>Profile</a></li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="mail.html"><i
+                    <!-- <li><a class="dropdown-item d-flex align-items-center" href="mail.html"><i
                                 class="ti ti-mail me-2 fs-18 text-primary"></i>Inbox</a></li>
                     <li><a class="dropdown-item d-flex align-items-center" href="to-do-list.html"><i
                                 class="ti ti-checklist me-2 fs-18 text-primary"></i>Task Manager</a></li>
                     <li><a class="dropdown-item d-flex align-items-center" href="mail-settings.html"><i
                                 class="ti ti-settings me-2 fs-18 text-primary"></i>Settings</a></li>
                     <li><a class="dropdown-item d-flex align-items-center" href="chat.html"><i
-                                class="ti ti-headset me-2 fs-18 text-primary"></i>Support</a></li>
+                                class="ti ti-headset me-2 fs-18 text-primary"></i>Support</a></li> -->
                     <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"  onclick="event.preventDefault(); document.getElementById('logoutform').submit();"><i
                                 class="ti ti-logout me-2 fs-18 text-primary"></i>Log Out</a></li>
                 </ul>

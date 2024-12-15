@@ -11,6 +11,7 @@ use App\User;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -139,5 +140,17 @@ class UsersController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
 
+    }
+
+    public function update_profile(Request $request){
+        if($request->all()){
+            $update = User::find(Auth::Id());
+            $update->password = \Hash::make($request->password);
+            $update->save();
+            session()->flash('success', 'You have successfully changes password!');
+            return back();
+        }else{
+            return view('auth.password');
+        }
     }
 }
