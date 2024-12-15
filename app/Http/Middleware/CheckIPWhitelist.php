@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Illuminate\Support\Facades\Http;
 use Closure;
 use Illuminate\Http\Request;
 use App\IPWhitelist;
@@ -18,8 +18,8 @@ class CheckIPWhitelist
      */
     public function handle(Request $request, Closure $next)
     {
-        $ip = $request->ip();
-
+        $ip =  Http::get('https://api64.ipify.org')->body();
+        //dd($ip);
         # Check if IP exists in the whitelist
         $allowed = IPWhitelist::where('ip_address', $ip)->exists();
         if (Auth::user()->roles->contains('title', 'Admin')) {
