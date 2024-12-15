@@ -4,6 +4,12 @@ Route::redirect('/', '/login');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
 
+Route::get('/server-ip', function () {
+    return response()->json([
+        'public_ip' => file_get_contents('https://api64.ipify.org'),
+    ]);
+});
+
  Route::any('/customLogin', 'Auth\LoginController@customLogin')->name('customLogin');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
@@ -27,6 +33,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('lead', 'LeadsController');
     Route::resource('card', 'CardsController');
     Route::resource('merchant', 'MarchentController');
+    Route::resource('ip-whitelist', 'IPWhitelistController');
 
     Route::any('sales', 'LeadsController@sales')->name('sales');
     Route::any('salesEdit/{id}', 'LeadsController@salesEdit')->name('sales.edit');
@@ -35,6 +42,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::any('approve/{id}', 'LeadsController@salesApprove')->name('sales.approve');
     Route::any('salesRejct/{id}', 'LeadsController@salesRejct')->name('sales.reject');
     Route::any('salesUpdate/{id}', 'LeadsController@salesUpdate')->name('salesUpdate');
+
+    Route::any('update_profile', 'UsersController@update_profile')->name('update_profile');
 
 
 });

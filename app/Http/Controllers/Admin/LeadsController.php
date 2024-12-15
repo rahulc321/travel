@@ -24,7 +24,7 @@ class LeadsController extends Controller
                      
                     $query->where('user_id', Auth::id());
                 }
-            })->get();
+            })->orderBy('id','ASC')->get();
         
         return view('admin.leads.index',$this->data);
     }
