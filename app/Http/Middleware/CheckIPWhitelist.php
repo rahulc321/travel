@@ -28,6 +28,7 @@ class CheckIPWhitelist
         }else{
             if (!$allowed) {
                 # IP not in whitelist, deny access
+                Auth::logout();
                 abort(403, 'Unauthorized: Your IP address is not allowed.');
             }
         }
